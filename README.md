@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Auto Carousel AI Pro
+
+Plataforma web profissional para geração, gerenciamento, agendamento e publicação automática de carrosséis para Instagram com IA.
 
 ## Getting Started
 
-First, run the development server:
+Preencha `.env.local` com suas credenciais e rode:
 
 ```bash
 npm run dev
