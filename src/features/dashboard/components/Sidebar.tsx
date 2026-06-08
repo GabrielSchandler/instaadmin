@@ -8,7 +8,7 @@ import {
   Images,
   Library,
   CalendarDays,
-  Instagram,
+  Camera,
   ScrollText,
   Settings,
   Sparkles,
@@ -20,7 +20,7 @@ const navItems = [
   { href: "/posts",              label: "Posts",         icon: Images },
   { href: "/media",              label: "Mídia",         icon: Library },
   { href: "/calendar",           label: "Calendário",    icon: CalendarDays },
-  { href: "/instagram",          label: "Instagram",     icon: Instagram },
+  { href: "/instagram",          label: "Instagram",     icon: Camera },
   { href: "/logs",               label: "Logs",          icon: ScrollText },
   { href: "/settings",           label: "Configurações", icon: Settings },
 ];

@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     const parsed = schema.safeParse(await req.json());
-    if (!parsed.success) return NextResponse.json({ error: parsed.error.errors[0].message }, { status: 400 });
+    if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Validation error" }, { status: 400 });
 
     const { post_id, instagram_account_id } = parsed.data;
 

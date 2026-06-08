@@ -7,7 +7,7 @@ import { loginSchema, registerSchema, type LoginInput, type RegisterInput } from
 
 export async function login(input: LoginInput) {
   const parsed = loginSchema.safeParse(input);
-  if (!parsed.success) return { error: parsed.error.errors[0].message };
+  if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Validation error" };
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
@@ -20,7 +20,7 @@ export async function login(input: LoginInput) {
 
 export async function register(input: RegisterInput) {
   const parsed = registerSchema.safeParse(input);
-  if (!parsed.success) return { error: parsed.error.errors[0].message };
+  if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Validation error" };
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signUp({

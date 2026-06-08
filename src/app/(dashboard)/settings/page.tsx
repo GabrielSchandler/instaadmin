@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Settings } from "@/types/database";
 
 export default async function SettingsPage() {
   const supabase = await createClient();
@@ -11,7 +12,7 @@ export default async function SettingsPage() {
     .from("settings")
     .select("*")
     .eq("user_id", user.id)
-    .single();
+    .single() as { data: Settings | null };
 
   return (
     <div className="space-y-6 max-w-2xl">

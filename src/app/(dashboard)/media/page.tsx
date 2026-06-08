@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { MediaLibrary } from "@/features/media/components/MediaLibrary";
+import type { MediaAsset } from "@/types/database";
 
 export default async function MediaPage() {
   const supabase = await createClient();
@@ -11,7 +12,7 @@ export default async function MediaPage() {
     .from("media_assets")
     .select("*")
     .eq("user_id", user.id)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false }) as { data: MediaAsset[] | null };
 
   return (
     <div className="space-y-6">

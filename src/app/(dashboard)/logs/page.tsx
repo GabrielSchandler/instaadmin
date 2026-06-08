@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import type { GenerationLog } from "@/types/database";
 
 const operationLabels: Record<string, string> = {
   content: "Geração de conteúdo",
@@ -22,7 +23,7 @@ export default async function LogsPage() {
     .select("*")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false })
-    .limit(100);
+    .limit(100) as { data: GenerationLog[] | null };
 
   return (
     <div className="space-y-6">

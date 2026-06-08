@@ -1,6 +1,7 @@
 "use client";
 
 import type { User } from "@supabase/supabase-js";
+import { useRouter } from "next/navigation";
 import { logout } from "@/features/auth/actions";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -20,6 +21,8 @@ interface HeaderProps {
 
 export function Header({ user }: HeaderProps) {
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
+
   const initials = (user.user_metadata?.full_name ?? user.email ?? "U")
     .split(" ")
     .map((n: string) => n[0])
@@ -40,27 +43,29 @@ export function Header({ user }: HeaderProps) {
         </Button>
 
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-              <Avatar className="h-8 w-8">
-                <AvatarFallback className="text-xs">{initials}</AvatarFallback>
-              </Avatar>
-            </Button>
+          <DropdownMenuTrigger
+            className="flex h-8 w-8 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Menu do usuário"
+          >
+            <Avatar className="h-8 w-8">
+              <AvatarFallback className="text-xs">{initials}</AvatarFallback>
+            </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-48">
             <div className="px-2 py-1.5">
               <p className="text-xs font-medium truncate">{user.email}</p>
             </div>
             <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <a href="/settings" className="flex items-center gap-2 cursor-pointer">
-                <UserIcon className="h-4 w-4" />
-                Perfil
-              </a>
+            <DropdownMenuItem
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => router.push("/settings")}
+            >
+              <UserIcon className="h-4 w-4" />
+              Perfil
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              className="text-destructive focus:text-destructive cursor-pointer"
+              className="text-destructive cursor-pointer"
               onClick={() => logout()}
             >
               <LogOut className="h-4 w-4 mr-2" />

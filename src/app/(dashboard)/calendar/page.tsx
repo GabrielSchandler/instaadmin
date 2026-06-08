@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { CalendarView } from "@/features/scheduler/components/CalendarView";
+import type { CarouselPost } from "@/types/database";
 
 export default async function CalendarPage() {
   const supabase = await createClient();
@@ -12,7 +13,9 @@ export default async function CalendarPage() {
     .select("id, title, status, scheduled_at")
     .eq("user_id", user.id)
     .not("scheduled_at", "is", null)
-    .order("scheduled_at");
+    .order("scheduled_at") as {
+      data: Pick<CarouselPost, "id" | "title" | "status" | "scheduled_at">[] | null
+    };
 
   return (
     <div className="space-y-6">

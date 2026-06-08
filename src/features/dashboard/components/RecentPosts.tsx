@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import type { CarouselPost } from "@/types/database";
 
 const statusColors: Record<string, string> = {
   draft:     "secondary",
@@ -30,7 +31,9 @@ export async function RecentPosts({ userId }: { userId: string }) {
     .select("id, title, status, created_at, template_id")
     .eq("user_id", userId)
     .order("created_at", { ascending: false })
-    .limit(5);
+    .limit(5) as {
+      data: Pick<CarouselPost, "id" | "title" | "status" | "created_at" | "template_id">[] | null
+    };
 
   return (
     <Card>

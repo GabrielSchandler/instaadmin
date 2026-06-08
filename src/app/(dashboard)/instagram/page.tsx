@@ -2,9 +2,11 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { Instagram, CheckCircle2, AlertCircle, Plus } from "lucide-react";
+import { Camera, CheckCircle2, AlertCircle, Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
+import type { InstagramAccount } from "@/types/database";
 
 export default async function InstagramPage() {
   const supabase = await createClient();
@@ -15,7 +17,7 @@ export default async function InstagramPage() {
     .from("instagram_accounts")
     .select("*")
     .eq("user_id", user.id)
-    .order("created_at");
+    .order("created_at") as { data: InstagramAccount[] | null };
 
   return (
     <div className="space-y-6">
@@ -24,28 +26,24 @@ export default async function InstagramPage() {
           <h1 className="text-2xl font-bold">Instagram</h1>
           <p className="text-muted-foreground text-sm mt-1">Gerencie suas contas conectadas</p>
         </div>
-        <Button asChild>
-          <Link href="/api/instagram/auth">
-            <Plus className="h-4 w-4 mr-2" />
-            Conectar conta
-          </Link>
-        </Button>
+        <Link href="/api/instagram/auth" className={cn(buttonVariants())}>
+          <Plus className="h-4 w-4 mr-2" />
+          Conectar conta
+        </Link>
       </div>
 
       {!accounts?.length ? (
         <Card>
           <CardContent className="flex flex-col items-center justify-center py-16 text-center">
-            <Instagram className="h-12 w-12 text-muted-foreground mb-4" />
+            <Camera className="h-12 w-12 text-muted-foreground mb-4" />
             <h3 className="font-semibold text-lg">Nenhuma conta conectada</h3>
             <p className="text-muted-foreground text-sm mt-2 mb-6">
               Conecte sua conta do Instagram Business para publicar automaticamente.
             </p>
-            <Button asChild>
-              <Link href="/api/instagram/auth">
-                <Instagram className="h-4 w-4 mr-2" />
-                Conectar Instagram
-              </Link>
-            </Button>
+            <Link href="/api/instagram/auth" className={cn(buttonVariants())}>
+              <Camera className="h-4 w-4 mr-2" />
+              Conectar Instagram
+            </Link>
           </CardContent>
         </Card>
       ) : (
@@ -54,7 +52,7 @@ export default async function InstagramPage() {
             <Card key={account.id}>
               <CardHeader className="flex flex-row items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                  <Instagram className="h-5 w-5 text-white" />
+                  <Camera className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <CardTitle className="text-base">@{account.username}</CardTitle>

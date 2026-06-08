@@ -1,12 +1,14 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Sparkles, PenSquare } from "lucide-react";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { cn } from "@/lib/utils";
+import type { CarouselPost } from "@/types/database";
 
 const statusLabels: Record<string, string> = {
   draft: "Rascunho", pending: "Pendente", scheduled: "Agendado",
@@ -26,7 +28,9 @@ export default async function PostsPage() {
     .from("carousel_posts")
     .select("id, title, status, created_at, template_id, hashtags")
     .eq("user_id", user.id)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false }) as {
+      data: Pick<CarouselPost, "id" | "title" | "status" | "created_at" | "template_id" | "hashtags">[] | null
+    };
 
   return (
     <div className="space-y-6">
@@ -36,18 +40,14 @@ export default async function PostsPage() {
           <p className="text-muted-foreground text-sm mt-1">{posts?.length ?? 0} posts criados</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" asChild>
-            <Link href="/posts/new">
-              <PenSquare className="h-4 w-4 mr-2" />
-              Manual
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link href="/posts/new/ai">
-              <Sparkles className="h-4 w-4 mr-2" />
-              Gerar com IA
-            </Link>
-          </Button>
+          <Link href="/posts/new" className={cn(buttonVariants({ variant: "outline" }))}>
+            <PenSquare className="h-4 w-4 mr-2" />
+            Manual
+          </Link>
+          <Link href="/posts/new/ai" className={cn(buttonVariants())}>
+            <Sparkles className="h-4 w-4 mr-2" />
+            Gerar com IA
+          </Link>
         </div>
       </div>
 
@@ -59,12 +59,10 @@ export default async function PostsPage() {
             <p className="text-muted-foreground text-sm mt-2 mb-6">
               Crie seu primeiro carrossel com IA ou faça upload manual.
             </p>
-            <Button asChild>
-              <Link href="/posts/new/ai">
-                <Sparkles className="h-4 w-4 mr-2" />
-                Gerar com IA
-              </Link>
-            </Button>
+            <Link href="/posts/new/ai" className={cn(buttonVariants())}>
+              <Sparkles className="h-4 w-4 mr-2" />
+              Gerar com IA
+            </Link>
           </CardContent>
         </Card>
       ) : (
