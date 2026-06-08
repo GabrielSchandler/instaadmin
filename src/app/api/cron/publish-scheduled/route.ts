@@ -31,9 +31,18 @@ export async function GET(req: NextRequest) {
   let processed = 0;
   let failed = 0;
 
+  type PostData = {
+    id: string;
+    user_id: string;
+    caption: string | null;
+    hashtags: string[] | null;
+    carousel_slides: { position: number; image_url: string | null }[];
+  };
+  type IgAccountData = { ig_user_id: string; access_token: string };
+
   for (const schedule of due) {
-    const post = schedule.carousel_posts as typeof schedule.carousel_posts & { carousel_slides: { position: number; image_url: string | null }[] };
-    const igAccount = schedule.instagram_accounts as typeof schedule.instagram_accounts & { ig_user_id: string; access_token: string };
+    const post = schedule.carousel_posts as PostData;
+    const igAccount = schedule.instagram_accounts as IgAccountData;
 
     await supabase
       .from("scheduled_posts")

@@ -16,7 +16,7 @@ import { Loader2, Sparkles, CheckCircle2 } from "lucide-react";
 const schema = z.object({
   topic: z.string().min(5, "Descreva o tema com pelo menos 5 caracteres"),
   tone: z.enum(["professional", "casual", "motivational", "educational", "humorous"]),
-  slide_count: z.coerce.number().min(4).max(10),
+  slide_count: z.number().min(4).max(10),
 });
 
 type FormData = z.infer<typeof schema>;
