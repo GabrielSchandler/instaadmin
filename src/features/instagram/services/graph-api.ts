@@ -92,11 +92,11 @@ export function buildOAuthUrl(state: string): string {
   const params = new URLSearchParams({
     client_id: process.env.INSTAGRAM_APP_ID!,
     redirect_uri: process.env.INSTAGRAM_REDIRECT_URI!,
-    scope: "instagram_basic,instagram_content_publish,instagram_manage_insights",
+    scope: "instagram_business_basic,instagram_business_content_publish",
     response_type: "code",
     state,
   });
-  return `https://api.instagram.com/oauth/authorize?${params}`;
+  return `https://www.instagram.com/oauth/authorize?${params}`;
 }
 
 export async function exchangeCodeForToken(code: string): Promise<{
@@ -116,7 +116,14 @@ export async function exchangeCodeForToken(code: string): Promise<{
     body: params,
   });
   const json = await res.json();
-  if (!res.ok) throw new Error(json.error_message ?? "Token exchange failed");
+  if (!res.ok) throw new Error(json.error_message ?? json.error?.message ?? "Token exchange failed");
 
-  return { access_token: json.access_token, user_id: String(json.user_id) };
+  // Exchange short-lived token for long-lived token (valid 60 days)
+  const longLivedRes = await fetch(
+    `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.INSTAGRAM_APP_SECRET}&access_token=${json.access_token}`
+  );
+  const longLived = await longLivedRes.json();
+
+  const finalToken = longLived.access_token ?? json.access_token;
+  return { access_token: finalToken, user_id: String(json.user_id) };
 }

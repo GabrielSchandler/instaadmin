@@ -33,9 +33,9 @@ export async function GET(req: NextRequest) {
 
     const { access_token, user_id } = await exchangeCodeForToken(code);
 
-    // Get IG username
+    // Get IG username and account info
     const profileRes = await fetch(
-      `https://graph.instagram.com/v21.0/${user_id}?fields=username&access_token=${access_token}`
+      `https://graph.instagram.com/v21.0/me?fields=id,username,name&access_token=${access_token}`
     );
     const profile = await profileRes.json();
 
