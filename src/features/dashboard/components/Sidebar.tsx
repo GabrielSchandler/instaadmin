@@ -11,18 +11,18 @@ import {
   Camera,
   ScrollText,
   Settings,
-  Sparkles,
+  Plus,
   ChevronRight,
 } from "lucide-react";
 
 const navItems = [
-  { href: "/dashboard",          label: "Dashboard",     icon: LayoutDashboard },
-  { href: "/posts",              label: "Posts",         icon: Images },
-  { href: "/media",              label: "Mídia",         icon: Library },
-  { href: "/calendar",           label: "Calendário",    icon: CalendarDays },
-  { href: "/instagram",          label: "Instagram",     icon: Camera },
-  { href: "/logs",               label: "Logs",          icon: ScrollText },
-  { href: "/settings",           label: "Configurações", icon: Settings },
+  { href: "/dashboard",  label: "Dashboard",     icon: LayoutDashboard },
+  { href: "/posts",      label: "Posts",          icon: Images },
+  { href: "/media",      label: "Mídia",          icon: Library },
+  { href: "/calendar",   label: "Calendário",     icon: CalendarDays },
+  { href: "/instagram",  label: "Instagram",      icon: Camera },
+  { href: "/logs",       label: "Logs",           icon: ScrollText },
+  { href: "/settings",   label: "Configurações",  icon: Settings },
 ];
 
 export function Sidebar() {
@@ -32,9 +32,9 @@ export function Sidebar() {
     <aside className="hidden md:flex flex-col w-64 border-r border-border bg-card">
       <div className="flex items-center gap-2 px-6 py-5 border-b border-border">
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
-          <Sparkles className="h-4 w-4 text-primary-foreground" />
+          <Camera className="h-4 w-4 text-primary-foreground" />
         </div>
-        <span className="font-semibold text-sm">Carousel AI Pro</span>
+        <span className="font-semibold text-sm">Insta Admin</span>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-1">
@@ -61,11 +61,11 @@ export function Sidebar() {
 
       <div className="px-3 py-4 border-t border-border">
         <Link
-          href="/posts/new/ai"
+          href="/posts/new"
           className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
         >
-          <Sparkles className="h-4 w-4" />
-          Gerar com IA
+          <Plus className="h-4 w-4" />
+          Novo Post
         </Link>
       </div>
     </aside>

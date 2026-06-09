@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdninstagram.com" },
     ],
   },
-  serverExternalPackages: ["sharp", "@resvg/resvg-js"],
+  serverExternalPackages: ["sharp"],
   experimental: {
     serverActions: { bodySizeLimit: "10mb" },
   },
