@@ -13,10 +13,12 @@ import {
   Settings,
   Plus,
   ChevronRight,
+  Download,
 } from "lucide-react";
 
 const navItems = [
   { href: "/dashboard",  label: "Dashboard",     icon: LayoutDashboard },
+  { href: "/entregas",   label: "Entregas",       icon: Download },
   { href: "/posts",      label: "Posts",          icon: Images },
   { href: "/media",      label: "Mídia",          icon: Library },
   { href: "/calendar",   label: "Calendário",     icon: CalendarDays },
