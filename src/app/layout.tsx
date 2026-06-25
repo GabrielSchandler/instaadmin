@@ -6,8 +6,8 @@ import { Providers } from "@/components/providers";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Auto Carousel AI Pro",
-  description: "Gere, agende e publique carrosséis profissionais no Instagram com IA.",
+  title: "Entregas GRS",
+  description: "Carrosséis prontos para baixar e postar.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
