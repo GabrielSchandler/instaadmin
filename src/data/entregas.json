@@ -1,5 +1,20 @@
 [
   {
+    "slug": "carrossel-newsec-crm-2026-09-21",
+    "titulo": "NewSec CRM por dentro: leads, funil, esteira jurídica e painel",
+    "data": "2026-09-21",
+    "legenda": "Como o NewSec CRM funciona por dentro. Telas do sistema, com dados fictícios:\n\n▪ Distribuição de leads — os leads da planilha são distribuídos a consultores, de forma manual ou automática, e cada cliente guarda o seu responsável.\n\n▪ Pré-vendas — o funil em Kanban mostra valor, produto e responsável de cada negociação, e toda mudança de etapa pede uma anotação.\n\n▪ Esteira jurídica — ao aprovar a pré-venda, o caso entra na esteira. A empresa edita as etapas, e cada movimentação registra quem moveu, quando e por quê.\n\n▪ Painel comercial — meta, vendas e ranking de consultores direto do que a equipe já registrou.\n\nComercial, jurídico, financeiro e gestão no mesmo ambiente.\n\n➡️ Arraste para o lado e veja cada tela.\n\n📩 Chame no Direct e agende uma demonstração.\n\n#newsec #crm #revisãodejuros #gestãodeoperações #processos #produtividade #gestãodeequipes",
+    "slides": [
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-01.png",
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-02.png",
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-03.png",
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-04.png",
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-05.png",
+      "/entregas/carrossel-newsec-crm-2026-09-21/slide-06.png"
+    ],
+    "story": "/entregas/carrossel-newsec-crm-2026-09-21/story.png"
+  },
+  {
     "slug": "carrossel-newsec-apresentacao-2026-09-21",
     "titulo": "NewSec: soluções personalizadas e três produtos para a sua operação",
     "data": "2026-09-21",
