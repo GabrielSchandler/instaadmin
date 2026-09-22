@@ -1,5 +1,20 @@
 [
   {
+    "slug": "carrossel-newsec-focus-2026-09-21",
+    "titulo": "NewSec Focus por dentro: índice, equipes, pessoas e aplicativos",
+    "data": "2026-09-21",
+    "legenda": "Como o NewSec Focus funciona por dentro. Telas do sistema, com dados fictícios:\n\n▪ Visão geral — o índice é o tempo produtivo dividido pelo expediente. Abaixo dele, quanto foi produtivo, neutro, improdutivo, ocioso ou sem dados.\n\n▪ Equipes — a tabela de desempenho compara as equipes lado a lado: produtivo, cobertura de dados, tempo ativo e variação frente ao período anterior.\n\n▪ Pessoas — a linha do tempo de atividades mostra produtivo, neutro, improdutivo e ocioso hora a hora, dentro da escala da pessoa.\n\n▪ Aplicativos e sites — cada aplicativo e site é classificado como produtivo, neutro ou improdutivo pela própria empresa, e o índice reflete essa régua.\n\nMonitoramento de produtividade da equipe, a partir das estações Windows.\n\n➡️ Arraste para o lado e veja cada tela.\n\n📩 Chame no Direct e agende uma demonstração.\n\n#newsec #produtividade #gestãodeequipes #gestãodeoperações #rh #dadosreais #monitoramento",
+    "slides": [
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-01.png",
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-02.png",
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-03.png",
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-04.png",
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-05.png",
+      "/entregas/carrossel-newsec-focus-2026-09-21/slide-06.png"
+    ],
+    "story": "/entregas/carrossel-newsec-focus-2026-09-21/story.png"
+  },
+  {
     "slug": "carrossel-newsec-chat-2026-09-21",
     "titulo": "NewSec Chat por dentro: atendimento, IA e supervisão",
     "data": "2026-09-21",
