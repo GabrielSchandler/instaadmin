@@ -1,5 +1,20 @@
 [
   {
+    "slug": "carrossel-newsec-chat-2026-09-21",
+    "titulo": "NewSec Chat por dentro: atendimento, IA e supervisão",
+    "data": "2026-09-21",
+    "legenda": "Como o NewSec Chat funciona por dentro. Telas do sistema, com dados fictícios:\n\n▪ Atendimento — a IA responde, coleta o que o cliente precisa e transfere ao departamento certo. Quando um atendente assume, ela pausa.\n\n▪ Configuração da IA — persona, primeira mensagem e regras ficam num rascunho. A nova versão só vai ao ar quando uma pessoa publica.\n\n▪ Análise — a IA lê as conversas do período e aponta o que está falhando, com trechos reais. Você aprova ou rejeita cada sugestão: nada é aplicado sozinho.\n\n▪ Supervisão — acompanhe as filas por equipe e consultor, veja quem espera e há quanto tempo, e distribua os atendimentos.\n\nCentral de atendimento de WhatsApp com inteligência artificial.\n\n➡️ Arraste para o lado e veja cada tela.\n\n📩 Chame no Direct e agende uma demonstração.\n\n#newsec #atendimentoaocliente #whatsapp #inteligênciaartificial #gestãodeoperações #atendimento #crm",
+    "slides": [
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-01.png",
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-02.png",
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-03.png",
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-04.png",
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-05.png",
+      "/entregas/carrossel-newsec-chat-2026-09-21/slide-06.png"
+    ],
+    "story": "/entregas/carrossel-newsec-chat-2026-09-21/story.png"
+  },
+  {
     "slug": "carrossel-newsec-crm-2026-09-21",
     "titulo": "NewSec CRM por dentro: leads, funil, esteira jurídica e painel",
     "data": "2026-09-21",
